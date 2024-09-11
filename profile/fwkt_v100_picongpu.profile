@@ -41,8 +41,7 @@ module load pngwriter/0.7.0
 # Environment #################################################################
 #
 #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$BOOST_LIB
-
-export PICSRC=./picongpu
+export PICSRC=/home/afshar87/afshari/simulation/simulation_auto/picongpu
 export PIC_EXAMPLES=$PICSRC/share/picongpu/examples
 export PIC_BACKEND="cuda:70"
 
