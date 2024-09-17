@@ -1,4 +1,0 @@
-Name: nlohmann_json
-Description: JSON for Modern C++
-Version: 3.9.1
-Cflags: -I/home/afshar87/afshari/simulation/simulation_auto/testPICMI-v2/lwfa_ionization_v2/include

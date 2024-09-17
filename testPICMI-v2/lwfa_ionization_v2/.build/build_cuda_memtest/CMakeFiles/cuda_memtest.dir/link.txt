@@ -1,1 +1,0 @@
-/trinity/shared/pkg/compiler/gcc/12.2.0/bin/g++ @CMakeFiles/cuda_memtest.dir/objects1.rsp -o cuda_memtest @CMakeFiles/cuda_memtest.dir/linkLibs.rsp -L"/trinity/shared/pkg/devel/cuda/12.1/targets/x86_64-linux/lib/stubs" -L"/trinity/shared/pkg/devel/cuda/12.1/targets/x86_64-linux/lib"
