@@ -1,0 +1,1 @@
+ -Wl,-rpath,::::::: "/trinity/shared/pkg/devel/cuda/12.1/lib64/stubs/libnvidia-ml.so" -pthread -lcudadevrt -lcudart_static -lrt -lpthread -ldl 

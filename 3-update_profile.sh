@@ -1,28 +1,17 @@
-
-# some  parts of the current shell script should to be chnaged in the future. search "STBCIF" term in the following script.
-
-: '
-how to run  this shell script:
-sh install_codes.sh
-or
-shell_script="install_codes.sh"
-chmod +x $shell_script 
-./$shell_script
-'
-
 #!/bin/bash
 
 ## INPUT variables
 # We are in the parent directory where this shell script exists.  
 
-# 3.3 Define which profile is relevant for running the simulation, in this case using the picongpu code
-PROFILE_NAME="fwkt_v100_picongpu.profile" # https://github.com/ComputationalRadiationPhysics/picongpu/tree/dev/etc/picongpu/hemera-hzdr
+# 1. Define which profile is relevant for running the simulation, in this case using one of the profiles of the picongpu code:
+# https://github.com/ComputationalRadiationPhysics/picongpu/tree/dev/etc/picongpu/hemera-hzdr. for lwfa simulation:
+# (https://github.com/ComputationalRadiationPhysics/picongpu/tree/dev/share/picongpu/examples/LaserWakefield)
 
+PROFILE_NAME="fwkt_v100_picongpu.profile" 
 
-# 3.4 Define correct values for the relevant profile chosen above (PROFILE_NAME)
+# 2. Define correct values for the relevant profile chosen above (PROFILE_NAME)
 NEW_MY_MAIL="m.afshari@hzdr.de"
 NEW_MY_MAILNOTIFY="ALL"  # "NONE" or  "ALL"
-# PICSRC="../picongpu"  # .. shows the parent directory of the current directory  simulation_auto 
 PICSRC="/home/afshar87/afshari/simulation/simulation_auto/picongpu"
 TBG_PARTITION="casus"  # "fwkt_v100"
 SIMULATION_OUTPUT_PATH="/bigdata/hplsim/external/afshar87"
@@ -34,7 +23,6 @@ check_command() {
         exit 1
     fi
 }
-
 
 ########   Create profile folder and copy hemera-hzdr
 mkdir -p profile

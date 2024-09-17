@@ -1,0 +1,80 @@
+/* Copyright 2013-2024 Axel Huebl, Heiko Burau, Rene Widera, Felix Schmitt,
+ *                     Richard Pausch, Marco Garten, Brian Marre, Kristin Tippey
+ *                     Hannes Troepgen, Masoud Afshari
+ *
+ * This file is part of PIConGPU.
+ *
+ * PIConGPU is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * PIConGPU is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with PIConGPU.
+ * If not, see <http://www.gnu.org/licenses/>.
+ */
+
+#pragma once
+
+#include "picongpu/particles/densityProfiles/profiles.def"
+#include "picongpu/particles/traits/GetDensityRatio.hpp"
+
+namespace picongpu
+{
+    namespace SI
+    {
+        /** Base density in particles per m^3 in the density profiles.
+         *
+         * This is often taken as reference maximum density in normalized profiles.
+         * Individual particle species can define a `densityRatio` flag relative
+         * to this value.
+         *
+         * unit: ELEMENTS/m^3
+         */
+        //! @todo find way to compute on the fly, Brian Marre, 2023
+        constexpr float_64 BASE_DENSITY_SI = 1.e25;
+    } // namespace SI
+
+    namespace densityProfiles::pypicongpu
+    {
+        // a species has always only exactly one profile, so only one of the following blocks below will be present
+
+            /** generate the initial macroparticle position for species "hydrogen" (species_hydrogen)
+             *
+             * @note the density may be further modified from this profile by the densityRatio of the species, set in
+             *  the init-pipeline.
+             */
+            struct init_species_hydrogen_GaussianParam
+            {
+                static constexpr float_X gasFactor = -1.0;
+                static constexpr float_X gasPower  = 4.0;
+
+                //! height of vacuum area on top border, unit: cells
+                static constexpr uint32_t vacuumCellsY = 50;
+
+                //! The edges of the constant center of the profile, unit: meter
+                static constexpr float_64 gasCenterLeft_SI  = 8.0000000000000007e-5;
+                static constexpr float_64 gasCenterRight_SI = 0.0001;
+
+                /** the distance from gasCenter_SI until the gas density decreases to its 1/e-th part
+                 *  unit: meter
+                 */
+                static constexpr float_64 gasSigmaLeft_SI  = 8.0000000000000007e-5;
+                static constexpr float_64 gasSigmaRight_SI = 8.0000000000000007e-5;
+
+                //! factor to multiply BASE_DENSITY_SI by to get density
+                static constexpr float_X densityFactor
+                    = static_cast<float_X>(1.0000000000000001e+25 / SI::BASE_DENSITY_SI);
+            };
+
+            using init_species_hydrogen = GaussianImpl<init_species_hydrogen_GaussianParam>;
+
+
+
+    } // namespace densityProfiles::pypicongpu
+} // namespace picongpu

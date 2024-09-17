@@ -16,8 +16,8 @@ chmod +x $shell_script
 # We are in the parent directory where this shell script exists.  
 
 
-# 3- define thegithub path of  codes  which are used for the simulation. 
-# 3.1  Define the git repository paths as variables
+#  define thegithub path of  codes  which are used for the simulation. 
+# 1  Define the git repository paths as variables
 picongpu_git_path='https://github.com/ComputationalRadiationPhysics/picongpu.git'
 picmi_git_path='https://github.com/picmi-standard/picmi'
 

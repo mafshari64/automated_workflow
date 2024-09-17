@@ -24,7 +24,7 @@ simulation_directory="testPICMI-v2"  # Modify this for each simulation
 
 # 2-***ALREADY*** available in simulation_directory (task 1) 
 picmi_input_file_name="picmi_inputfile_ionization-v2.py"  # the name of the input_file of the simulation (in this case a python script using PICMI standard rules)
-directory_contain_pypicongpuJSON="lwfa_ionization_v2"  # lwfa_ionization_v2 is already defined in the picmi python script, i.e. task no.2: picmi_input_file_name="picmi_inputfile_ionization-v2.py" 
+pypicongpuJSON_directory_name="lwfa_ionization_v2"  # lwfa_ionization_v2 is already defined in the picmi python script, i.e. task no.2: picmi_input_file_name="picmi_inputfile_ionization-v2.py" 
 
 ## Follopwing parameters should be defined.
 
@@ -54,18 +54,18 @@ check_command() {
 }
 
 
-### Check if the directory_contain_pypicongpuJSON directory exists and delete it if it does
-output_directory_path="${simulation_directory}/${directory_contain_pypicongpuJSON}"  
+### Check if the pypicongpuJSON_directory_name directory exists and delete it if it does
+pypicongpuJSON_directory_path="${simulation_directory}/${pypicongpuJSON_directory_name}"  
 
-if [ -d "${output_directory_path}" ]; then
-    echo "Removing existing output directory: ${output_directory_path}"
-    rm -rf "${output_directory_path}"
+if [ -d "${pypicongpuJSON_directory_path}" ]; then
+    echo "Removing existing output directory: ${pypicongpuJSON_directory_path}"
+    rm -rf "${pypicongpuJSON_directory_path}"
     check_command "removing existing output directory"
 else
-    echo "Directory ${directory_contain_pypicongpuJSON} does not exist. Proceeding..."
+    echo "Directory ${pypicongpuJSON_directory_name} does not exist. Proceeding..."
 fi
 
-<<COMMENT
+: << 'end'
 ########  Create customTemplates folder if it doesn't exist and copy template 
 echo "Create custom_templates folder if it doesn't exist and copy template"
 mkdir -p "${simulation_directory}/customTemplates"
@@ -75,11 +75,11 @@ cp -r "${picongpu_custom_template_path}/include"  "${simulation_directory}/custo
 
 echo "Starting rsync CUSTOM_TEMPLATE between ${SOURCE_customTemplates} and ${DEST_customTemplates}..." 
 rsync -a --delete "${SOURCE_customTemplates}" "${DEST_customTemplates}"
-COMMENT
+end
 
 ######## Source the profile file to load environment variables
 echo " Source the profile file to load environment variables"
-source "./profile/${PROFILE_NAME}"
+# source "./profile/${PROFILE_NAME}"
 
 # echo $PATH
 
@@ -90,9 +90,14 @@ echo " run picmi_input_file_name"
 python "${simulation_directory}/${picmi_input_file_name}" 
 check_command "running Python script to build the PIConGPU simulation ${picmi_input_file_name}"
 
-######## run simulation (for picongpu: pic-build command)
+
+######## get a compute node
+echo "getDevice"
+getDevice  # getDevice 4 Allocates 4 GPUs default number of GPUs is 1.
+
+######## build simulation (for picongpu: pic-build command)
 echo "pic-build simulation"
-cd ${output_directory_path}
+cd ${pypicongpuJSON_directory_path}
 
 # echo "Current working directory: $(pwd)"
 # echo "  "
@@ -107,7 +112,7 @@ pic-build
 # ls ./picongpu/etc/picongpu/hemera-hzdr/fwkt_v100.tpl
 echo "run simulation (for picongpu: tbg command) with the specified configuration file and output folder" 
 
-# cd ${simulation_directory}/${directory_contain_pypicongpuJSON} 
+# cd ${simulation_directory}/${pypicongpuJSON_directory_name} 
 # tbg -f -s -t "./etc/picongpu/N.cfg ${simulation_output_folder_path}/${simulation_output_folder_name}"
 tbg -f -s -t "./etc/picongpu/N.cfg ${SCRATCH}/${simulation_output_folder_name}"
 
