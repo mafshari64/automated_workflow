@@ -1,0 +1,11 @@
+# Ignore specific folders
+picmi/
+picongpu/
+profile/
+testPICMI-v2/
+
+# Ignore specific files
+0-setup_simulation-full.sh
+2-0-copy_custom_template.sh
+get-pip.py
+api_key.txt
