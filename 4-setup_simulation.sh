@@ -1,22 +1,7 @@
-
-# some  parts of the current shell script should to be chnaged in the future. search "STBCIF" term in the following script.
-
-: '
-
-how to run  this shell script:
-sh setup_simulation.sh
-or
-shell_script="setup_simulation.sh"
-chmod +x $shell_script 
-./$shell_script
-
-'
-
 #!/bin/bash
 
-
 ## INPUT variables
-# We are in the parent directory where this setup_simulation.sh script exists.  
+# We are in the parent directory where the current shell script exists.  
 
 ##  The following parameters should  ***ALREADY***  have been defined.
 # 1-  ***ALREADY***   created in the parent directory for each simulation:
@@ -24,25 +9,15 @@ simulation_directory="testPICMI-v2"  # Modify this for each simulation
 
 # 2-***ALREADY*** available in simulation_directory (task 1) 
 picmi_input_file_name="picmi_inputfile_ionization-v2.py"  # the name of the input_file of the simulation (in this case a python script using PICMI standard rules)
-pypicongpuJSON_directory_name="lwfa_ionization_v2"  # lwfa_ionization_v2 is already defined in the picmi python script, i.e. task no.2: picmi_input_file_name="picmi_inputfile_ionization-v2.py" 
+pypicongpuJSON_directory_name="lwfa_ionization_v2"        # lwfa_ionization_v2 is already defined in the picmi python script, i.e. task no.2: picmi_input_file_name="picmi_inputfile_ionization-v2.py" 
 
-## Follopwing parameters should be defined.
-
-# 1- Define the path to the template folder of the picongpu code
-picongpu_custom_template_path="picongpu/share/picongpu/pypicongpu/template"
-
-# 1-1 modified customTemplates  for the source and destination directories:
-#As we already modified customTemplates somewhere else we should copy it from the initial source ** STBCIF**  
-SOURCE_customTemplates="/home/afshar87/afshari/simulation/picInputs/testPICMI-v2/customTemplates/" 
-DEST_customTemplates="/home/afshar87/afshari/simulation/simulation_auto/testPICMI-v2/customTemplates/"
-
-# 2- Define relevant profile for running the simulation, in this case using the picongpu code
+# 3- Define relevant profile for running the simulation, in this case using the picongpu code
 PROFILE_NAME="fwkt_v100_picongpu.profile" # https://github.com/ComputationalRadiationPhysics/picongpu/tree/dev/etc/picongpu/hemera-hzdr
 
-# 2- Define the PATH of the output folder where simulation data are dumped (in general in supercomputer)
+# 4- Define the **PATH** of the output folder where simulation data are dumped (in general in supercomputer)
 simulation_output_folder_path="/bigdata/hplsim/external/afshar87"
 
-# 3- Define the NAME of the output folder where simulation data are dumped (in general in supercomputer)
+# 5- Define the **NAME** of the output folder where simulation data are dumped (in general in supercomputer)
 simulation_output_folder_name="lwfa-ionization-auto"  # Replace with your specific output folder name
 
 ### Function to check if a command was successful
@@ -52,7 +27,6 @@ check_command() {
         exit 1
     fi
 }
-
 
 ### Check if the pypicongpuJSON_directory_name directory exists and delete it if it does
 pypicongpuJSON_directory_path="${simulation_directory}/${pypicongpuJSON_directory_name}"  
@@ -64,18 +38,6 @@ if [ -d "${pypicongpuJSON_directory_path}" ]; then
 else
     echo "Directory ${pypicongpuJSON_directory_name} does not exist. Proceeding..."
 fi
-
-: << 'end'
-########  Create customTemplates folder if it doesn't exist and copy template 
-echo "Create custom_templates folder if it doesn't exist and copy template"
-mkdir -p "${simulation_directory}/customTemplates"
-# Copy the 'etc' and 'includes' directories from the template directly to customTemplates
-cp -r "${picongpu_custom_template_path}/etc"      "${simulation_directory}/customTemplates/"
-cp -r "${picongpu_custom_template_path}/include"  "${simulation_directory}/customTemplates/"
-
-echo "Starting rsync CUSTOM_TEMPLATE between ${SOURCE_customTemplates} and ${DEST_customTemplates}..." 
-rsync -a --delete "${SOURCE_customTemplates}" "${DEST_customTemplates}"
-end
 
 ######## Source the profile file to load environment variables
 echo " Source the profile file to load environment variables"

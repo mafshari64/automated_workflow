@@ -1,19 +1,11 @@
 # -*- coding: utf-8 -*-
 
-
 ##### Configuration
 # to create an api_key visit: https://fwksimulationlogger.fz-rossendorf.de/login
 # to login enter the username and password.
-# After login click on ** View Account/Generate API Token** at the top menu of the website.
-#create an api_key.txt which contains the api_key value.
+# After login click on ** View Account/Generate API Token** at the top menu of the website. Then, generate an API Token (api_key).
+#create an api_key.txt and copy the api_key value.
 api_key_file = './api_key.txt'                          # Define the path to the API key file: currently in the same folder with this python script
-
-# Read the API key from the text file
-with open(api_key_file, 'r') as file:
-    api_key = file.read().strip()                        # Read and remove any extra whitespace or newline characters
-
-# Now you can use api_key in your code
-print("API key: {}".format(api_key))
 
 # File and metadata information
 upload_type = 'PIConGPU'
@@ -28,6 +20,14 @@ keywords = ['simulation', 'lwfa', 'electron', 'custom_template']
 
 import subprocess
 import sys
+
+# Read the API key from the text file
+with open(api_key_file, 'r') as file:
+    api_key = file.read().strip()                        # Read and remove any extra whitespace or newline characters
+
+# Now you can use api_key in your code
+print("API key: {}".format(api_key))
+
 
 def install_package(package_name):
     """Install the specified package using pip."""
@@ -57,7 +57,7 @@ import requests
 BASE_URL = 'fwksimulationlogger.fz-rossendorf.de'
 api_url = 'https://{}/api/upload'.format(BASE_URL)
 
-# for debugging: List files in the directory for debugging
+### for debugging: List files in the directory for debugging
 # print("Listing files in directory:", directory_path)
 # for filename in os.listdir(directory_path):
 #     print(filename)

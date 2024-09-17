@@ -3,9 +3,9 @@
 ## INPUT variables
 # We are in the parent directory where this shell script exists.  
 
-# 1. Define which profile is relevant for running the simulation, in this case using one of the profiles of the picongpu code:
-# https://github.com/ComputationalRadiationPhysics/picongpu/tree/dev/etc/picongpu/hemera-hzdr. for lwfa simulation:
-# (https://github.com/ComputationalRadiationPhysics/picongpu/tree/dev/share/picongpu/examples/LaserWakefield)
+# 1. Define which profile is relevant for running the simulation:
+#  in this case  'fwkt_v100_picongpu.profile' profile of the picongpu code: https://github.com/ComputationalRadiationPhysics/picongpu/tree/dev/etc/picongpu/hemera-hzdr. 
+# for lwfa simulation: (https://github.com/ComputationalRadiationPhysics/picongpu/tree/dev/share/picongpu/examples/LaserWakefield)
 
 PROFILE_NAME="fwkt_v100_picongpu.profile" 
 
@@ -15,14 +15,6 @@ NEW_MY_MAILNOTIFY="ALL"  # "NONE" or  "ALL"
 PICSRC="/home/afshar87/afshari/simulation/simulation_auto/picongpu"
 TBG_PARTITION="casus"  # "fwkt_v100"
 SIMULATION_OUTPUT_PATH="/bigdata/hplsim/external/afshar87"
-
-### Function to check if a command was successful
-check_command() {
-    if [ $? -ne 0 ]; then
-        echo "Error occurred while $1."
-        exit 1
-    fi
-}
 
 ########   Create profile folder and copy hemera-hzdr
 mkdir -p profile

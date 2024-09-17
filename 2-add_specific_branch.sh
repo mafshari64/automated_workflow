@@ -1,5 +1,11 @@
 #!/bin/bash
 
+#  Define the pull request (PR) relevant to the simulation (if needed):
+#in this case Laser Wake field: (https://github.com/ComputationalRadiationPhysics/picongpu/tree/dev/share/picongpu/examples/LaserWakefield)
+# including using ionization of picongpu defined in the PICMI input file
+#PR_ID="5007"           # https://github.com/ComputationalRadiationPhysics/picongpu/pull/5007
+
+
 # Define variables
 REPO_DIR="./picongpu"
 BRANCH_TO_FETCH="brian"
