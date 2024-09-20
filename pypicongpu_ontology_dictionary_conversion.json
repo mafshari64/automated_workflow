@@ -1,0 +1,379 @@
+{
+    "laser": {
+        "pulse_duration_si": "laser_pulse_duration_FWHM", 
+        "laguerre_modes": [
+            {
+                "single_laguerre_mode": "LG_radial_index_(p)"
+            }
+        ], 
+        "focus_pos_si": [
+            {
+                "component": "laser_focus_position_x"
+            }, 
+            {
+                "component": "laser_focus_position_y"
+            }, 
+            {
+                "component": "laser_focus_position_z"
+            }
+        ], 
+        "laguerre_phases": [
+            {
+                "single_laguerre_phase": "LG_azimuthal_index_(l)"
+            }
+        ], 
+        "waist_si": "laser_beam_waist", 
+        "propagation_direction": [
+            {
+                "component": "laser_propagation_direction_x"
+            }, 
+            {
+                "component": "laser_propagation_direction_y"
+            }, 
+            {
+                "component": "laser_propagation_direction_z"
+            }
+        ], 
+        "polarization_type": "laser_polarization_circular", 
+        "E0_si": "laser_amplitude", 
+        "polarization_direction": [
+            {
+                "component": "laser_polarization_direction_x"
+            }, 
+            {
+                "component": "laser_polarization_direction_y"
+            }, 
+            {
+                "component": "laser_polarization_direction_z"
+            }
+        ], 
+        "wave_length_si": "laser_wavelength", 
+        "phase": "laser_temporal_phase", 
+        "pulse_init": "laser_pulse_multiplicator", 
+        "huygens_surface_positions": {
+            "row_x": {
+                "positive": "huygens_surface_positions_xmax", 
+                "negative": "huygens_surface_positions_xmin"
+            }, 
+            "row_y": {
+                "positive": "huygens_surface_positions_ymax", 
+                "negative": "huygens_surface_positions_ymin"
+            }, 
+            "row_z": {
+                "positive": "huygens_surface_positions_zmax", 
+                "negative": "huygens_surface_positions_zmin"
+            }
+        }, 
+        "modenumber": "LG_mode_number"
+    }, 
+    "typical_ppc": "simulation_particle_per_cell", 
+    "solver": {
+        "name": "simulation_field_solver"
+    }, 
+    "time_steps": "simulation_max_time_step", 
+    "customuserinput": {
+        "png_plugin_CUSTOM_NORMALIZATION_SI": "png_custom_normalization_SI", 
+        "png_plugin_folder_name": "png_folder_name", 
+        "openPMD_period": "openPMD_period", 
+        "openPMD_extension": "openPMD_extension", 
+        "phase_space_momentum": "phase_space_momentum", 
+        "macro_particle_count_period": "macro_particle_count_period", 
+        "png_plugin_preParticleDensCol": "png_pre_particle_density_color", 
+        "minimum_weight": "simulation_minimum_weight", 
+        "phase_space_filter": "phase_space_filter", 
+        "png_plugin_period": "png_period", 
+        "png_plugin_PRE_CHANNEL3_OPACITY": "png_pre_channel_3_opacity", 
+        "phase_space_min": "phase_space_min", 
+        "phase_space_space": "phase_space_space", 
+        "energy_histogram_period": "energy_histogram_period", 
+        "macro_particle_count_species_name": "macro_particle_count_species_name", 
+        "energy_histogram_filter": "energy_histogram_filter", 
+        "png_plugin_SCALE_IMAGE": "png_scale_image", 
+        "phase_space_species_name": "phase_space_species_name", 
+        "png_plugin_slicePoint": "png_slice_point", 
+        "png_plugin_axis": "png_axis", 
+        "energy_histogram_min_energy": "energy_histogram_min_energy", 
+        "energy_histogram_species_name": "energy_histogram_species_name", 
+        "png_plugin_EM_FIELD_SCALE_CHANNEL2": "png_EM_field_scale_channel_2", 
+        "png_plugin_EM_FIELD_SCALE_CHANNEL3": "png_EM_field_scale_channel_3", 
+        "png_plugin_EM_FIELD_SCALE_CHANNEL1": "png_EM_field_scale_channel_1", 
+        "openPMD_file": "openPMD_file", 
+        "phase_space_period": "phase_space_period", 
+        "checkpoint_period": "checkpoint_period", 
+        "png_plugin_PRE_PARTICLE_DENS_OPACITY": "png_pre_particle_density_opacity", 
+        "energy_histogram_max_energy": "energy_histogram_max_energy", 
+        "tags": [
+            "minimum_weight", 
+            "png_plot_configuration", 
+            "energy_histogram_plot_configuration", 
+            "phase_space_configuration", 
+            "openPMD_configuration", 
+            "checkpoint_configuration", 
+            "macro_particle_count_configuration"
+        ], 
+        "checkpoint_restart_backend": "checkpoint_restart_backend", 
+        "png_plugin_SCALE_TO_CELLSIZE": "png_scale_to_cellsize", 
+        "png_plugin_preChannel2_colorScale": "png_pre_channel_2_color_scale", 
+        "png_plugin_WHITE_BOX_PER_GPU": "png_white_box_per_GPU", 
+        "png_plugin_preChannel2": "png_pre_channel_2", 
+        "png_plugin_preChannel3": "png_pre_channel_3", 
+        "png_plugin_preChannel1": "png_pre_channel_1", 
+        "png_plugin_preChannel3_colorScale": "png_pre_channel_3_color_scale", 
+        "phase_space_max": "phase_space_max", 
+        "energy_histogram_bin_count": "energy_histogram_bin_count", 
+        "png_plugin_preChannel1_colorScale": "png_pre_channel_1_color_scale", 
+        "png_plugin_PRE_CHANNEL1_OPACITY": "png_pre_channel_1_opacity", 
+        "png_plugin_PRE_CHANNEL2_OPACITY": "png_pre_channel_2_opacity", 
+        "checkpoint_backend": "checkpoint_backend", 
+        "png_plugin_species_name": "png_species_name"
+    }, 
+    "delta_t_si": "simulation_time_step", 
+    "species_initmanager": {
+        "operations": {
+            "set_bound_electrons": [
+                {
+                    "species": {
+                        "typename": "species_typename", 
+                        "name": "species_name", 
+                        "constants": {
+                            "density_ratio": "species_density_ratio", 
+                            "charge": {
+                                "charge_si": "species_charge"
+                            }, 
+                            "mass": {
+                                "mass_si": "species_mass"
+                            }, 
+                            "ionizers": "ionization_species", 
+                            "element_properties": {
+                                "element.symbol": "species_chemical_symbol", 
+                                "element.picongpu_name": "species_name"
+                            }
+                        }, 
+                        "attributes": {
+                            "weighting": "macroparticle_attributes_weighting", 
+                            "boundElectrons": "macroparticle_attributes_bound_electrons", 
+                            "position<position_pic>": "macroparticle_attributes_position", 
+                            "momentum": "macroparticle_attributes_momentum"
+                        }
+                    }, 
+                    "bound_electrons": "ionization_number_of_bound_electrons"
+                }
+            ], 
+            "simple_momentum": [
+                {
+                    "drift": "species_momentum", 
+                    "species": {
+                        "typename": "species_typename", 
+                        "name": "species_name", 
+                        "constants": {
+                            "density_ratio": "species_density_ratio", 
+                            "charge": {
+                                "charge_si": "species_charge"
+                            }, 
+                            "mass": {
+                                "mass_si": "species_mass"
+                            }, 
+                            "ionizers": "ionization_species", 
+                            "element_properties": {
+                                "element.symbol": "species_chemical_symbol", 
+                                "element.picongpu_name": "species_name"
+                            }
+                        }, 
+                        "attributes": {
+                            "weighting": "macroparticle_attributes_weighting", 
+                            "boundElectrons": "macroparticle_attributes_bound_electrons", 
+                            "position<position_pic>": "macroparticle_attributes_position", 
+                            "momentum": "macroparticle_attributes_momentum"
+                        }
+                    }, 
+                    "temperature": "species_temperature"
+                }, 
+                {
+                    "drift": "species_momentum", 
+                    "species": {
+                        "typename": "species_typename", 
+                        "name": "species_name", 
+                        "constants": {
+                            "density_ratio": "species_density_ratio", 
+                            "charge": {
+                                "charge_si": "species_charge"
+                            }, 
+                            "mass": {
+                                "mass_si": "species_mass"
+                            }, 
+                            "ionizers": "ionization_species", 
+                            "element_properties": {
+                                "element.symbol": "species_chemical_symbol", 
+                                "element.picongpu_name": "species_name"
+                            }
+                        }, 
+                        "attributes": {
+                            "weighting": "macroparticle_attributes_weighting", 
+                            "boundElectrons": "macroparticle_attributes_bound_electrons", 
+                            "position<position_pic>": "macroparticle_attributes_position", 
+                            "momentum": "macroparticle_attributes_momentum"
+                        }
+                    }, 
+                    "temperature": "species_temperature"
+                }
+            ], 
+            "simple_density": [
+                {
+                    "ppc": "simulation_particle_per_cell", 
+                    "profile": {
+                        "data": {
+                            "density": "particle_shape_gaussian_density_amplitude", 
+                            "gas_sigma_rear": "particle_shape_gaussian_sigma_rear", 
+                            "gas_sigma_front": "particle_shape_gaussian_sigma_front", 
+                            "gas_factor": "particle_shape_gaussian_factor", 
+                            "gas_power": "particle_shape_gaussian_power", 
+                            "gas_center_rear": "particle_shape_gaussian_center_rear", 
+                            "gas_center_front": "particle_shape_gaussian_center_front", 
+                            "vacuum_cells_front": "simulation_vacuum_cells"
+                        }, 
+                        "type": {
+                            "foil": "species_particle_shape_foil", 
+                            "gaussian": "species_particle_shape_gaussian", 
+                            "uniform": "species_particle_shape_uniform"
+                        }
+                    }, 
+                    "placed_species_initial": {
+                        "typename": "species_typename", 
+                        "name": "species_name", 
+                        "constants": {
+                            "density_ratio": "species_density_ratio", 
+                            "charge": {
+                                "charge_si": "species_charge"
+                            }, 
+                            "mass": {
+                                "mass_si": "species_mass"
+                            }, 
+                            "ionizers": "ionization_species", 
+                            "element_properties": {
+                                "element.symbol": "species_chemical_symbol", 
+                                "element.picongpu_name": "species_name"
+                            }
+                        }, 
+                        "attributes": {
+                            "weighting": "macroparticle_attributes_weighting", 
+                            "boundElectrons": "macroparticle_attributes_bound_electrons", 
+                            "position<position_pic>": "macroparticle_attributes_position", 
+                            "momentum": "macroparticle_attributes_momentum"
+                        }
+                    }, 
+                    "placed_species_copied": [
+                        {
+                            "typename": "species_typename", 
+                            "name": "species_name", 
+                            "constants": {
+                                "density_ratio": "species_density_ratio", 
+                                "charge": {
+                                    "charge_si": "species_charge"
+                                }, 
+                                "mass": {
+                                    "mass_si": "species_mass"
+                                }, 
+                                "ionizers": "ionization_species", 
+                                "element_properties": {
+                                    "element.symbol": "species_chemical_symbol", 
+                                    "element.picongpu_name": "species_name"
+                                }
+                            }, 
+                            "attributes": {
+                                "weighting": "macroparticle_attributes_weighting", 
+                                "boundElectrons": "macroparticle_attributes_bound_electrons", 
+                                "position<position_pic>": "macroparticle_attributes_position", 
+                                "momentum": "macroparticle_attributes_momentum"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }, 
+        "species": [
+            {
+                "typename": "species_typename", 
+                "name": "species_name", 
+                "constants": {
+                    "density_ratio": "species_density_ratio", 
+                    "charge": {
+                        "charge_si": "species_charge"
+                    }, 
+                    "mass": {
+                        "mass_si": "species_mass"
+                    }, 
+                    "ionizers": "ionization_species", 
+                    "element_properties": {
+                        "element.symbol": "species_chemical_symbol", 
+                        "element.picongpu_name": "species_name"
+                    }
+                }, 
+                "attributes": {
+                    "weighting": "macroparticle_attributes_weighting", 
+                    "boundElectrons": "macroparticle_attributes_bound_electrons", 
+                    "position<position_pic>": "macroparticle_attributes_position", 
+                    "momentum": "macroparticle_attributes_momentum"
+                }
+            }, 
+            {
+                "typename": "species_typename", 
+                "name": "species_name", 
+                "constants": {
+                    "density_ratio": "species_density_ratio", 
+                    "charge": {
+                        "charge_si": "species_charge"
+                    }, 
+                    "mass": {
+                        "mass_si": "species_mass"
+                    }, 
+                    "ionizers": "ionization_species", 
+                    "element_properties": {
+                        "element.symbol": "species_chemical_symbol", 
+                        "element.picongpu_name": "species_name"
+                    }
+                }, 
+                "attributes": {
+                    "weighting": "macroparticle_attributes_weighting", 
+                    "boundElectrons": "macroparticle_attributes_bound_electrons", 
+                    "position<position_pic>": "macroparticle_attributes_position", 
+                    "momentum": "macroparticle_attributes_momentum"
+                }
+            }
+        ]
+    }, 
+    "grid": {
+        "cell_size": {
+            "y": "simulation_cell_size_y", 
+            "x": "simulation_cell_size_x", 
+            "z": "simulation_cell_size_z"
+        }, 
+        "cell_cnt": {
+            "y": "simulation_ny", 
+            "x": "simulation_nx", 
+            "z": "simulation_nz"
+        }, 
+        "boundary_condition": {
+            "y": "simulation_bc_y", 
+            "x": "simulation_bc_x", 
+            "z": "simulation_bc_z"
+        }, 
+        "gpu_cnt": {
+            "y": "simulation_number_of_gpu_y", 
+            "x": "simulation_number_of_gpu_x", 
+            "z": "simulation_number_of_gpu_z"
+        }
+    }, 
+    "output": {
+        "auto": {
+            "png_axis": [
+                {
+                    "axis": "simulation_output_png_axis_2D"
+                }, 
+                {
+                    "axis": "simulation_output_png_axis_2D"
+                }
+            ], 
+            "period": "simulation_output_png_period"
+        }
+    }
+}

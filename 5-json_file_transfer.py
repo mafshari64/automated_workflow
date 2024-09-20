@@ -26,9 +26,9 @@ with open(api_key_file, 'r') as file:
     api_key = file.read().strip()                        # Read and remove any extra whitespace or newline characters
 
 # Now you can use api_key in your code
-print("API key: {}".format(api_key))
+# print("API key: {}".format(api_key))
 
-
+# install required packages
 def install_package(package_name):
     """Install the specified package using pip."""
     try:
